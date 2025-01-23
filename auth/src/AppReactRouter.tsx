@@ -1,5 +1,6 @@
 import { createMemoryRouter, RouterProvider, useSearchParams } from 'react-router-dom';
 import { LogIn } from '@/components/log-in/log-in';
+import { SignUp } from '@/components/sign-up/sign-up.tsx';
 import { NavigationProvider } from './services/navigation/context';
 import { FunctionComponent } from 'react';
 
@@ -7,6 +8,12 @@ function LogInPage() {
     const [searchParams] = useSearchParams();
 
     return <LogIn message={searchParams.get('message') ?? undefined} />;
+}
+
+function SignUpPage() {
+    const [searchParams] = useSearchParams();
+
+    return <SignUp message={searchParams.get('message') ?? undefined} />;
 }
 
 interface AppProps {
@@ -25,6 +32,10 @@ const createRoutes = (onNavigate: AppProps['onNavigate']) => [
     {
         path: '/log-in',
         element: withNavigationProvider(LogInPage, onNavigate),
+    },
+    {
+        path: '/sign-up',
+        element: withNavigationProvider(SignUpPage, onNavigate),
     },
 ];
 

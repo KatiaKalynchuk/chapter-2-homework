@@ -6,6 +6,7 @@ import "./index.css";
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
 import { AuthProvider } from "./services/auth/context";
+import "zone.js";
 
 // Create a new router instance
 const router = createRouter({ routeTree });

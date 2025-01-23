@@ -1,22 +1,21 @@
-import {Header} from "@/components/header/header";
-import {
-    createLazyFileRoute,
-    // useRouter,
-} from "@tanstack/react-router";
-// import TaskList from "taskList/TaskList";
+import { Header } from "@/components/header/header";
+import { createLazyFileRoute } from "@tanstack/react-router";
+import { useEffect } from 'react';
 
 export const Route = createLazyFileRoute("/tasks")({
     component: TasksPage,
 });
 
-export default function TasksPage() {
-    // const router = useRouter();
+function TasksPage() {
+  useEffect(()=> {
+    import("angularApp/AppComponent").then((module)=> {
+    }).catch((e)=>{
+      console.error(e);
+    });
+  })
 
-    return (
-        <>
-            <Header/>
-            {/*<TaskList onNavigate={router.navigate} />*/}
-            <h1>Task MFE goes here</h1>
-        </>
-    );
+  return <div className="container">
+    <Header />
+    <app-root></app-root>
+  </div>
 }
