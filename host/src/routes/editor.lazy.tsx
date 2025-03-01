@@ -2,10 +2,12 @@ import { Header } from "@/components/header/header";
 import { useAuth } from "@/services/auth/context";
 import {
   createLazyFileRoute,
-  // useRouter,
+  useRouter,
   Navigate,
 } from "@tanstack/react-router";
-// import TaskEditor from "taskCreation/TaskCreation";
+import React from 'react';
+
+const TaskEditor = React.lazy(() => import('taskEditor/TaskEditor'));
 
 export const Route = createLazyFileRoute("/editor")({
   component: Editor,
@@ -13,7 +15,7 @@ export const Route = createLazyFileRoute("/editor")({
 
 function Editor() {
   const { session } = useAuth();
-  // const router = useRouter();
+  const router = useRouter();
 
   if (session === undefined) {
     return "Loading ...";
@@ -22,8 +24,7 @@ function Editor() {
   return session ? (
     <>
       <Header />
-      {/*<TaskEditor onNavigate={router.navigate} />*/}
-      <h1>Task Editor MFE goes here </h1>
+      <TaskEditor onNavigate={router.navigate} />
     </>
   ) : (
     <Navigate to="/login" />

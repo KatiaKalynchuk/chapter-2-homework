@@ -40,7 +40,7 @@ module.exports = {
         profile_user: `profile_user@http://localhost:3001/remoteEntry.js`,
       },
       exposes: {
-        './AppComponent': './src/app/app.component.ts',
+        './AppComponent': './src/app/app.component.web.ts',
       },
       shared: {
         react: {

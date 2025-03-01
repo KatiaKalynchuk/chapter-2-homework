@@ -23,5 +23,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "include": ["src/**/*.d.ts", "src/app/watchlist/watchlist.component.web.ts"]
+  "include": ["src/**/*.d.ts", "src/app/app.component.web.ts"]
 }
